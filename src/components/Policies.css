@@ -1,0 +1,242 @@
+.policies {
+  background: white;
+}
+
+.policies-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.policy-card {
+  background: #f8fafc;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.policy-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.policy-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.policy-icon {
+  font-size: 2.5rem;
+  animation: pulse 2s infinite;
+}
+
+.policy-header h3 {
+  color: #1f2937;
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.policy-intro {
+  color: #374151;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.cancellation-rules {
+  margin-bottom: 2rem;
+}
+
+.rule-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  background: white;
+  border-radius: 0.5rem;
+  border-left: 4px solid #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+.rule-item:hover {
+  border-left-color: #2563eb;
+  transform: translateX(5px);
+}
+
+.rule-period {
+  flex: 1;
+}
+
+.period-text {
+  font-weight: 500;
+  color: #374151;
+}
+
+.rule-charge {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.policy-note {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  border: 2px solid #dbeafe;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.note-icon {
+  font-size: 1.5rem;
+  margin-top: 0.25rem;
+}
+
+.policy-note p {
+  margin: 0;
+  color: #374151;
+  line-height: 1.5;
+}
+
+.refund-content {
+  margin-bottom: 2rem;
+}
+
+.refund-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.refund-step:hover {
+  transform: translateX(5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.step-content h4 {
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.step-content p {
+  color: #6b7280;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.policy-highlight {
+  background: linear-gradient(135deg, #dbeafe, #e0f2fe);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.highlight-icon {
+  font-size: 1.5rem;
+}
+
+.policy-highlight p {
+  margin: 0;
+  color: #1e40af;
+  font-weight: 500;
+}
+
+.policies-footer {
+  text-align: center;
+  padding: 3rem;
+  background: #f8fafc;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content h4 {
+  color: #1f2937;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.footer-content p {
+  color: #6b7280;
+  margin-bottom: 2rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .policies-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .rule-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .rule-charge {
+    align-self: flex-end;
+  }
+  
+  .refund-step {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .step-number {
+    align-self: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .policy-card {
+    padding: 1.5rem;
+  }
+  
+  .policy-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+  
+  .policies-footer {
+    padding: 2rem 1rem;
+  }
+}

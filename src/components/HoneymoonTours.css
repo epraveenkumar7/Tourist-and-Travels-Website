@@ -1,0 +1,184 @@
+/* General Page Styles */
+.honeymoon-tours-page {
+    font-family: Arial, sans-serif;
+    background: #f9fafb;
+  }
+  
+  /* Hero Section */
+  .hero-section-honeymoon {
+    background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+    padding: 120px 20px;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+  }
+  
+  .hero-section p {
+    font-size: 1.2rem;
+  }
+  
+  /* Section Header */
+  .section-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .section-header h2 {
+    font-size: 2rem;
+  }
+  
+  .section-header p {
+    color: #555;
+  }
+  
+  /* Tours Grid */
+  .tours-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+  }
+  
+  .tour-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    transform: translateY(30px);
+    opacity: 0;
+    transition: all 0.6s ease;
+  }
+  
+  .tour-card.animated {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  .tour-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  
+  .tour-overlay {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    width: 100%;
+    padding: 10px;
+    color: #fff;
+  }
+  
+  .tour-content {
+    padding: 20px;
+  }
+  
+  .price-container .price {
+    margin: 10px 0;
+    font-weight: bold;
+  }
+  
+  .btn-view-tour {
+    background: #1f2937;
+    color: #fff;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 4px;
+  }
+  
+  /* Tour Backgrounds */
+  .maldives-bg { background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat; }
+  .switzerland-bg { background: url('https://images.unsplash.com/photo-1608889175604-14f28de0b923?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat; }
+  .bali-bg { background: url('https://images.unsplash.com/photo-1573496799515-d4fd6a7c11ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat; }
+  .paris-bg { background: url('https://images.unsplash.com/photo-1522098543979-ffc7f79d4694?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat; }
+  
+  /* Popular Experiences */
+  .experiences-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+  }
+  
+  .experience-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    transform: translateY(30px);
+    opacity: 0;
+    transition: all 0.6s ease;
+    text-align: center;
+  }
+  
+  .experience-card.animated {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  .experience-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  /* Testimonials */
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+  }
+  
+  .testimonial-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    transform: translateY(30px);
+    opacity: 0;
+    transition: all 0.6s ease;
+  }
+  
+  .testimonial-card.animated {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  .testimonial-card p {
+    font-style: italic;
+  }
+  
+  .testimonial-card h4 {
+    margin-top: 15px;
+    font-weight: bold;
+  }
+  
+  /* CTA Section */
+  .cta-section {
+    background: skyblue;
+    color: #fff;
+    text-align: center;
+    padding: 60px 20px;
+  }
+  
+  .cta-buttons {
+    margin-top: 20px;
+  }
+  
+  .cta-buttons a {
+    display: inline-block;
+    margin: 5px 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  
+  .btn-primary {
+    background: #10b981;
+    color: #fff;
+  }
+  
+  .btn-secondary {
+    background: #fff;
+    color: #1f2937;
+  }
+  
