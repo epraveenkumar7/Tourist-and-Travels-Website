@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import './Header.css';
-// import logo from '../assets/logo.jpg';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import "./Header.css";
+import logo from "../assets/logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,8 +13,8 @@ const Header = () => {
       setIsScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleMouseEnter = (menu) => {
@@ -25,35 +25,39 @@ const Header = () => {
     setShowDropdown(null);
   };
 
+  const handleLinkClick = () => {
+    setIsMenuOpen(false);
+    window.scrollTo(0, 0);
+  };
+
   return (
     <header className={`header ${isScrolled ? "scrolled" : ""}`}>
       <div className="container">
         <div className="header-content">
           <div className="logo">
-            {/* <img src={logo} alt="PK" style={{width: '50px', height: '20px'}} /> */}
-            <h2>PK-Holidays</h2>
+            <img src={logo} alt="Go See Holidays" />
+            <h2>Go See Holidays</h2>
           </div>
 
           <nav className={`nav ${isMenuOpen ? "nav-open" : ""}`}>
             <ul className="nav-links">
               <li>
-                <Link to="/" onClick={() => setIsMenuOpen(false)}>
+                <Link to="/" onClick={handleLinkClick}>
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/about" onClick={() => setIsMenuOpen(false)}>
-                  About us
+                <Link to="/about" onClick={handleLinkClick}>
+                  About Us
                 </Link>
               </li>
               <li>
-                <Link to="/group-tours" onClick={() => setIsMenuOpen(false)}>
+                <Link to="/group-tours" onClick={handleLinkClick}>
                   Group Tours
                 </Link>
               </li>
-
               <li>
-                <Link to="/india-tours" onClick={() => setIsMenuOpen(false)}>
+                <Link to="/india-tours" onClick={handleLinkClick}>
                   India Tours
                 </Link>
               </li>
@@ -62,47 +66,41 @@ const Header = () => {
                 onMouseLeave={handleMouseLeave}
                 className="dropdown-container"
               >
-                <Link
-                  to="/spiritual-tours"
-                  onClick={() => setIsMenuOpen(false)}
-                >
+                <Link to="/spiritual-tours" onClick={handleLinkClick}>
                   Spiritual Tours
                 </Link>
                 {showDropdown === "spiritual" && (
                   <div className="dropdown-menu">
                     <Link
                       to="/spiritual-tours/shirdi"
-                      onClick={() => setIsMenuOpen(false)}
+                      onClick={handleLinkClick}
                     >
                       Shirdi Tours
                     </Link>
-                    <Link
-                      to="/spiritual-tours/kasi"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
+                    <Link to="/spiritual-tours/kasi" onClick={handleLinkClick}>
                       Kasi Tours
                     </Link>
                     <Link
                       to="/spiritual-tours/odisha"
-                      onClick={() => setIsMenuOpen(false)}
+                      onClick={handleLinkClick}
                     >
                       Odisha Tour
                     </Link>
                     <Link
                       to="/spiritual-tours/haridwar"
-                      onClick={() => setIsMenuOpen(false)}
+                      onClick={handleLinkClick}
                     >
                       Haridwar & Rishikesh
                     </Link>
                     <Link
                       to="/spiritual-tours/gujarat"
-                      onClick={() => setIsMenuOpen(false)}
+                      onClick={handleLinkClick}
                     >
                       Gujarat Dwaraka Tour
                     </Link>
                     <Link
                       to="/spiritual-tours/madhya-pradesh"
-                      onClick={() => setIsMenuOpen(false)}
+                      onClick={handleLinkClick}
                     >
                       Madhya Pradesh Tour
                     </Link>
@@ -110,23 +108,17 @@ const Header = () => {
                 )}
               </li>
               <li>
-                <Link
-                  to="/international-tours"
-                  onClick={() => setIsMenuOpen(false)}
-                >
+                <Link to="/international-tours" onClick={handleLinkClick}>
                   International Tours
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/honeymoon-tours"
-                  onClick={() => setIsMenuOpen(false)}
-                >
+                <Link to="/honeymoon-tours" onClick={handleLinkClick}>
                   Honeymoon Tours
                 </Link>
               </li>
               <li>
-                <Link to="/contact" onClick={() => setIsMenuOpen(false)}>
+                <Link to="/contact" onClick={handleLinkClick}>
                   Contact Us
                 </Link>
               </li>

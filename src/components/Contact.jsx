@@ -58,7 +58,7 @@ const Contact = () => {
           <h2>Get In Touch</h2>
           <p>Ready to plan your next adventure? Let's make it happen!</p>
         </div>
-        
+
         <div className="contact-content">
           <div className="contact-info animate-on-scroll fade-left">
             <h3>Contact Information</h3>
@@ -69,43 +69,60 @@ const Contact = () => {
                 <p>123 Travel Street, Adventure City, AC 12345</p>
               </div>
             </div>
-            
+
             <div className="contact-item">
               <div className="contact-icon">📞</div>
               <div>
                 <h4>Phone</h4>
-                <p>+1 (555) 123-4567</p>
+                <p>+91 8807249960</p>
+                <p>+91 8807243963</p>
+                <p>+91 8807243962</p>
               </div>
             </div>
-            
+
             <div className="contact-item">
               <div className="contact-icon">✉️</div>
               <div>
                 <h4>Email</h4>
-                <p>info@goseeholidays.com</p>
+                <p>goseeholidays@gmail.com</p>
               </div>
             </div>
-            
+
             <div className="contact-item">
               <div className="contact-icon">🕒</div>
               <div>
                 <h4>Office Hours</h4>
-                <p>Mon - Fri: 9AM - 6PM<br />Sat: 10AM - 4PM</p>
+                <p>
+                  Mon - Fri: 9AM - 6PM
+                  <br />
+                  Sat: 10AM - 4PM
+                </p>
               </div>
             </div>
-            
+
             <div className="social-links">
               <h4>Follow Us</h4>
               <div className="social-icons">
-                <a href="#" className="social-icon">📘</a>
-                <a href="#" className="social-icon">📷</a>
-                <a href="#" className="social-icon">🐦</a>
-                <a href="#" className="social-icon">💼</a>
+                <a href="#" className="social-icon">
+                  📘
+                </a>
+                <a href="#" className="social-icon">
+                  📷
+                </a>
+                <a href="#" className="social-icon">
+                  🐦
+                </a>
+                <a href="#" className="social-icon">
+                  💼
+                </a>
               </div>
             </div>
           </div>
-          
-          <form className="contact-form animate-on-scroll fade-right" onSubmit={handleSubmit}>
+
+          <form
+            className="contact-form animate-on-scroll fade-right"
+            onSubmit={handleSubmit}
+          >
             <div className="form-group">
               <label htmlFor="name">Full Name *</label>
               <input
@@ -117,7 +134,7 @@ const Contact = () => {
                 required
               />
             </div>
-            
+
             <div className="form-row">
               <div className="form-group">
                 <label htmlFor="email">Email Address *</label>
@@ -130,7 +147,7 @@ const Contact = () => {
                   required
                 />
               </div>
-              
+
               <div className="form-group">
                 <label htmlFor="phone">Phone Number</label>
                 <input
@@ -142,7 +159,7 @@ const Contact = () => {
                 />
               </div>
             </div>
-            
+
             <div className="form-group">
               <label htmlFor="destination">Preferred Destination</label>
               <select
@@ -161,7 +178,7 @@ const Contact = () => {
                 <option value="other">Other</option>
               </select>
             </div>
-            
+
             <div className="form-group">
               <label htmlFor="message">Message *</label>
               <textarea
@@ -174,7 +191,7 @@ const Contact = () => {
                 required
               ></textarea>
             </div>
-            
+
             <button type="submit" className="btn btn-primary">
               Send Message
             </button>

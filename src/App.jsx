@@ -13,6 +13,8 @@ import './App.css';
 import IndiaTours from './components/IndiaTours';
 import InternationalTours from './components/InternationalTours';
 import HoneymoonTours from './components/HoneymoonTours';
+import TourDetails from './components/TourDetails';
+import FloatingContact from './components/FloatingContact';
 
 function App() {
   return (
@@ -36,6 +38,7 @@ function App() {
           />
           <Route path="/about" element={<About />} />
           <Route path="/spiritual-tours" element={<SpiritualTours />} />
+          <Route path="/tour-details/:id" element={<TourDetails />} />
           <Route path="/india-tours" element={<IndiaTours />} />
           <Route path="/international-tours" element={<InternationalTours />} />
           <Route path="/contact" element={<Contact />} />
@@ -43,6 +46,7 @@ function App() {
           <Route path="/honeymoon-tours" element={<HoneymoonTours />} />
           {/* Add more routes as needed */}
         </Routes>
+        <FloatingContact/>
         <Footer />
       </div>
     </Router>

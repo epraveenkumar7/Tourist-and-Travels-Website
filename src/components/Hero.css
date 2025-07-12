@@ -16,22 +16,7 @@
   z-index: -2;
 }
 
-.youtube-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 2s ease-in-out;
-  z-index: -1;
-}
-
-.youtube-background.active {
-  opacity: 1;
-}
-
-.hero-video {
+.hero-image {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -44,10 +29,9 @@
   opacity: 0;
   transition: opacity 2s ease-in-out;
   z-index: -1;
-  pointer-events: none;
 }
 
-.hero-video.active {
+.hero-image.active {
   opacity: 1;
 }
 
@@ -57,11 +41,11 @@
   left: 0;
   width: 100%;
   height: 100%;
-
+  background: rgba(0, 0, 0, 0.4);
   z-index: -1;
 }
 
-.video-indicators {
+.image-indicators {
   position: absolute;
   bottom: 6rem;
   left: 50%;
@@ -71,7 +55,7 @@
   z-index: 10;
 }
 
-.video-indicator {
+.image-indicator {
   width: 60px;
   height: 4px;
   background: rgba(255, 255, 255, 0.3);
@@ -83,11 +67,11 @@
   transition: all 0.3s ease;
 }
 
-.video-indicator:hover {
+.image-indicator:hover {
   background: rgba(255, 255, 255, 0.5);
 }
 
-.video-indicator span {
+.image-indicator span {
   position: absolute;
   top: 0;
   left: 0;
@@ -97,11 +81,11 @@
   transition: width 0.3s ease;
 }
 
-.video-indicator.active {
+.image-indicator.active {
   background: rgba(255, 255, 255, 0.5);
 }
 
-.video-indicator.active span {
+.image-indicator.active span {
   width: 100%;
   animation: progress 8s linear;
 }
@@ -155,58 +139,14 @@
   animation: fadeInUp 1s ease 0.4s both;
 }
 
-.hero-scroll {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
-}
-
-.scroll-indicator {
-  width: 30px;
-  height: 50px;
-  border: 2px solid white;
-  border-radius: 20px;
-  position: relative;
-  animation: pulse 2s infinite;
-}
-
-.scroll-indicator span {
-  position: absolute;
-  top: 8px;
-  left: 50%;
-  width: 4px;
-  height: 8px;
-  background: white;
-  border-radius: 2px;
-  transform: translateX(-50%);
-  animation: scroll 2s infinite;
-}
-
-@keyframes pulse {
-  0%, 100% {
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
     opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(-50%) translateY(0);
-    opacity: 0;
-  }
-  40% {
-    opacity: 1;
-  }
-  80% {
-    transform: translateX(-50%) translateY(20px);
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
+    transform: translateY(0);
   }
 }
 
@@ -231,11 +171,11 @@
     width: 200px;
   }
   
-  .video-indicators {
+  .image-indicators {
     bottom: 4rem;
   }
   
-  .video-indicator {
+  .image-indicator {
     width: 40px;
     height: 3px;
   }

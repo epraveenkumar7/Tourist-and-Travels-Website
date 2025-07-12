@@ -1,33 +1,60 @@
 import React, { useEffect, useState } from "react";
 import "./Hero.css";
-import vid1 from "../assets/hero-video/vid-1.mp4";
-import vid2 from "../assets/hero-video/vid-2.mp4";
-import vid3 from "../assets/hero-video/vid-3.mp4";
-import vid4 from "../assets/hero-video/vid-4.mp4";
+import img1 from "../assets/paris.jpg";
+import img2 from "../assets/bali.jpg";
+import img3 from "../assets/thailand.jpg";
+import img4 from "../assets/malaysia.jpg";
+import img5 from "../assets/USA.jpg";
+import img6 from "../assets/dubai.jpg";
 
 const Hero = () => {
-  const [currentVideo, setCurrentVideo] = useState(0);
+  const [currentImage, setCurrentImage] = useState(0);
 
-  const videos = [
+  const images = [
     {
-      src: vid2,
-      title: "Tropical Paradise",
+      src: img1,
+      title: "Discover Paris",
+      subtitle:
+        "Experience the romance, art, and history of the City of Light.",
     },
     {
-      src: vid1,
-      title: "Mountain Adventure",
+      src: img2,
+      title: "Explore Bali",
+      subtitle:
+        "Relax in paradise with lush jungles, serene beaches, and spiritual retreats.",
     },
     {
-      src: vid3,
-      title: "Ocean Waves",
+      src: img3,
+      title: "Unwind in Thailand",
+      subtitle:
+        "Discover vibrant culture, stunning beaches, and ancient temples.",
     },
     {
-      src: vid4,
-      title: "Forest Escape",
+      src: img4,
+      title: "Discover Malaysia",
+      subtitle:
+        "Experience diverse landscapes, modern cities, and rich traditions.",
+    },
+    {
+      src: img5,
+      title: "Explore the USA",
+      subtitle:
+        "Discover iconic landmarks, vibrant cities, and natural wonders.",
+    },
+    {
+      src: img6,
+      title: "Discover Dubai",
+      subtitle: "Marvel at modern architecture, luxury, and desert adventures.",
     },
   ];
 
+  // Preload images to prevent gray screen
   useEffect(() => {
+    images.forEach((image) => {
+      const img = new Image();
+      img.src = image.src;
+    });
+
     const observerOptions = {
       threshold: 0.1,
       rootMargin: "0px 0px -50px 0px",
@@ -44,79 +71,53 @@ const Hero = () => {
     const animateElements = document.querySelectorAll(".animate-on-scroll");
     animateElements.forEach((el) => observer.observe(el));
 
-    const videoInterval = setInterval(() => {
-      setCurrentVideo((prev) => (prev + 1) % videos.length);
-    }, 9000);
+    const imageInterval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 3000);
 
     return () => {
       observer.disconnect();
-      clearInterval(videoInterval);
+      clearInterval(imageInterval);
     };
-  }, [videos.length]);
+  }, [images.length]);
 
   return (
     <section id="home" className="hero">
       <div className="hero-background">
-        <video
-          key={currentVideo}
-          className="hero-video active"
-          autoPlay
-          muted
-          loop
-          playsInline
-        >
-          <source src={videos[currentVideo].src} type="video/mp4" />
-        </video>
-
+        {images.map((image, index) => (
+          <img
+            key={index}
+            className={`hero-image ${index === currentImage ? "active" : ""}`}
+            src={image.src}
+            alt={image.title}
+          />
+        ))}
         <div className="hero-overlay"></div>
       </div>
 
-      {/* <div className="video-indicators">
-        {videos.map((_, index) => (
-          <button
-            key={index}
-            className={`video-indicator ${
-              index === currentVideo ? "active" : ""
-            }`}
-            onClick={() => setCurrentVideo(index)}
-          >
-            <span></span>
-          </button>
-        ))}
-      </div> */}
+     
 
       <div className="hero-content">
         <div className="container">
           <div className="hero-text">
             <h1 className="hero-title animate-on-scroll fade-up">
-              Explore the World with
-              <span className="highlight"> Go See Holidays</span>
+              {images[currentImage].title}
+              <span className="highlight"> with Go See Holidays</span>
             </h1>
             <p className="hero-subtitle animate-on-scroll fade-up">
-              We are passionate about helping people explore the world. Our
-              mission is to make travel accessible and enjoyable for everyone.
+              {images[currentImage].subtitle}
             </p>
             <div className="hero-buttons animate-on-scroll fade-up">
               <a href="#destinations" className="btn btn-primary">
                 Explore Destinations
               </a>
-              <a
-                href="#packages"
-                className="btn btn-secondary"
-                style={{
-                  width: "200px",
-                  textAlign: "center",
-                  height: "60px",
-                  marginTop: "20px",
-                }}
-              >
+              <a href="#packages" className="btn btn-primary">
                 View Packages
               </a>
             </div>
           </div>
         </div>
       </div>
-
     </section>
   );
 };

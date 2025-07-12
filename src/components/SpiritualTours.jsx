@@ -1,107 +1,119 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./SpiritualTours.css";
+import sai1 from"../assets/sai1.jpg";
+import sai2 from"../assets/sai2.jpg";
+import sai3 from"../assets/sai3.jpg";
+import sai4 from"../assets/sai4.jpg";
+import sai5 from"../assets/sai6.jpg";
+import sai6 from"../assets/sai6.jpg";
+// import sai7 from"../assets/sai7.jpg";
+import sai8 from"../assets/sai8.jpg";
+// import sai8 from"../assets/sai8.jpg";
+// import sai6 from "../assets/sai7.jpg";
+// import sai7 from "../assets/sai8.jpg";
+// import sai8 from "../assets/sai5.jpg";
+ 
 
-const tourPackages = [
-  {
-    id: 1,
-    title: "Shirdi Tour Package from Chennai (1N/2D)",
-    route: "/spiritual-tours/shirdi",
-    price: "Rs. 18,900 / Person",
-    groupSize: "20",
-    languages: "Tamil / English",
-    includes: [
-      "Flight Tickets",
-      "VIP Darshan",
-      "A/C Luxury Vehicle",
-      "5 Star Hotel Stay",
-      "Buffet Veg Food",
-      "Guide",
-    ],
-    excludes: [
-      "GST",
-      "Entrance fees & Special Darshan Charges",
-      "Local Auto Expenses",
-      "Room Service, Tips, Phone Calls, Laundry",
-      "Insurance",
-      "Personal Expenses",
-      "Additional expenses for unforeseen events",
-    ],
-    timeline: [
-      "Day 1: Chennai → Shirdi: Flight, Hotel Check-in, Sai Baba Darshan, Dinner",
-      "Day 2: Breakfast, Mukh Darshan, Shopping, Lunch, Flight Back to Chennai",
-    ],
-  },
-  {
-    id: 2,
-    title: "Shirdi & 2 Jyothirlingam Tour Package (2N/3D)",
-    route: "/spiritual-tours/shirdi-jyothirlingam",
-    price: "Rs. 21,900 / Person",
-    groupSize: "25",
-    languages: "Tamil / English",
-    includes: [
-      "Two-way Air tickets (Chennai - Pune - Chennai)",
-      "A/C Luxury Bus",
-      "Star Hotel Stay in Shirdi",
-      "Buffet Veg Food",
-      "Guide",
-    ],
-    excludes: [
-      "GST",
-      "Entrance fees & Special Darshan Charges",
-      "Local Auto Expenses",
-      "Room Service, Tips, Phone Calls, Laundry",
-      "Insurance",
-      "Personal Expenses",
-      "Additional expenses for unforeseen events",
-    ],
-    timeline: [
-      "Day 1: Chennai → Pune → Bhimashankar → Shirdi",
-      "Day 2: Shirdi Darshan, Nashik Panchavati, Trimbakeshwar",
-      "Day 3: Shani Shingnapur, Ranjangaon Mahaganpati, Pune → Chennai",
-    ],
-  },
-];
-
-const testimonials = [
-  {
-    id: 1,
-    quote:
-      "Our Kerala tour was absolutely magical! The houseboat stay in Alleppey was the highlight of our trip. The tour was perfectly organized with the right balance of activities and relaxation time.",
-    name: "Rahul Mehta",
-    detail: "Kerala Tour, March 2023",
-  },
-  {
-    id: 2,
-    quote:
-      "The Rajasthan tour exceeded all our expectations. The palaces, forts, and desert safari were incredible. Our guide was knowledgeable and made sure we experienced the authentic culture of Rajasthan.",
-    name: "Priya Sharma",
-    detail: "Rajasthan Tour, November 2022",
-  },
-  {
-    id: 3,
-    quote:
-      "The Golden Triangle tour was perfect for our first visit to India. Seeing the Taj Mahal at sunrise was a dream come true. The entire trip was well-organized and our accommodations were excellent.",
-    name: "Amit Patel",
-    detail: "Golden Triangle Tour, February 2023",
-  },
-];
 
 const SpiritualTours = () => {
+  const images = [sai4, sai1, sai2, sai3, sai5,sai6,sai8,sai2]; // Array of images for the tours
   useEffect(() => {
+    // Animation for elements when they come into view
     const animateOnScroll = () => {
       const elements = document.querySelectorAll(".animate-on-scroll");
+
       elements.forEach((element) => {
-        const position = element.getBoundingClientRect().top;
+        const elementPosition = element.getBoundingClientRect().top;
         const windowHeight = window.innerHeight;
-        if (position < windowHeight - 100) {
+
+        if (elementPosition < windowHeight - 100) {
           element.classList.add("animated");
         }
       });
     };
+
     window.addEventListener("scroll", animateOnScroll);
+    // Initial check for elements in view
     animateOnScroll();
+
     return () => window.removeEventListener("scroll", animateOnScroll);
   }, []);
+
+  const tours = [
+    {
+      id: 1,
+      title: "Shirdi Tour Package from Chennai 1N/2D",
+      description:
+        "Chennai - Shirdi - Chennai (Includes Flight Tickets, 5 Star Hotel Stay, Buffet Veg Food, AC Luxury Vehicle).",
+      price: "₹18,900/Person",
+      groupSize: 20,
+      languages: "Tamil / English Speaking Guide",
+    },
+    {
+      id: 2,
+      title: "Shirdi & 2 Jyothirlingam Tour Package from Chennai 2N/3D",
+      description:
+        "Chennai - Pune - Bhimashankar - Shirdi - Trimbakeshwar - Shani Shingnapur - Pune - Chennai (Includes Flight Tickets, Star Hotel Stay, Buffet Veg Food, AC Luxury Vehicle).",
+      price: "₹21,900/Person",
+      groupSize: 25,
+      languages: "Tamil / English Speaking Guide",
+    },
+    {
+      id: 3,
+      title: "Shirdi & 2 Jyothirlingam Tour Package from Chennai 2N/3D",
+      description:
+        "Chennai - Mumbai - Mumbai Siddhi Vinayagar & Mahalakshmi - Nashik Triambakeshwar - Shirdi - Grishneshwar - Ellora - Pune – Chennai (Includes Flight Tickets, Star Hotel Stay, Buffet Veg Food, AC Luxury Vehicle).",
+      price: "₹21,900/Person",
+      groupSize: 35,
+      languages: "Tamil / English Speaking Guide",
+    },
+    {
+      id: 4,
+      title: "Shirdi & Ellora Tour Package from Chennai 1N/2D",
+      description:
+        "Chennai - Pune - Shani Shingnapur - Shirdi - Grishneshwar - Ellora - Pune – Chennai (Includes Flight Tickets, Star Hotel Stay, Buffet Veg Food, AC Luxury Vehicle).",
+      price: "₹17,900/Person",
+      groupSize: 35,
+      languages: "Tamil / English Speaking Guide",
+    },
+    {
+      id: 5,
+      title: "Shirdi & Pandharpur Tour Package from Chennai 1N/2D",
+      description:
+        "Chennai - Pune - Pandharpur - Shirdi - Shani Shingnapur - Pune - Chennai (Includes Flight Tickets, Star Hotel Stay, Buffet Veg Food, AC Luxury Vehicle).",
+      price: "₹17,900/Person",
+      groupSize: 25,
+      languages: "Tamil / English Speaking Guide",
+    },
+    {
+      id: 6,
+      title: "Shirdi & Pandharpur Tour Package from Chennai 2N/3D",
+      description:
+        "Chennai - Pune - Pandharpur - Shirdi - Grishneshwar - Ellora - Shani Shingnapur - Pune – Chennai (Includes Flight Tickets, Star Hotel Stay, Buffet Veg Food, AC Luxury Vehicle).",
+      price: "₹20,900/Person",
+      groupSize: 25,
+      languages: "Tamil / English Speaking Guide",
+    },
+    {
+      id: 7,
+      title: "Shirdi, Kolhapur & Pandharpur Tour Package from Chennai 2N/3D",
+      description:
+        "Chennai - Pune - Kolhapur - Pandharpur - Shirdi - Shani Shingnapur - Pune - Chennai (Includes Flight Tickets, Star Hotel Stay, Buffet Veg Food, AC Luxury Vehicle).",
+      price: "₹21,900/Person",
+      groupSize: 25,
+      languages: "Tamil / English Speaking Guide",
+    },
+    {
+      id: 8,
+      title: "Shirdi & 3 Jyothirlingam Tour Package from Chennai 2N/3D",
+      description:
+        "Chennai - Pune - Bhimashankar - Shirdi - Trimbakeshwar - Grishneshwar - Ellora - Pune - Chennai (Includes Flight Tickets, Star Hotel Stay, Buffet Veg Food, AC Luxury Vehicle).",
+      price: "₹21,900/Person",
+      groupSize: 25,
+      languages: "Tamil / English Speaking Guide",
+    },
+  ];
 
   return (
     <div className="spiritual-tours-page">
@@ -110,123 +122,239 @@ const SpiritualTours = () => {
         <div className="hero-content">
           <h1 className="animate-on-scroll fade-up">Spiritual Tours</h1>
           <p className="animate-on-scroll fade-up">
-            Explore our curated spiritual tour packages and pilgrimages
+            Embark on a soulful journey through India’s sacred sites with our
+            curated spiritual tour packages
           </p>
         </div>
       </section>
 
-      {/* Packages */}
-      <section className="spiritual-tours-section">
+      {/* Featured Tours Section */}
+      <section className="featured-tours">
         <div className="container">
           <div className="section-header animate-on-scroll fade-up">
-            <h2>Shirdi & Jyotirlinga Packages</h2>
-            <p>Compare and choose your ideal spiritual tour</p>
+            <h2>Featured Spiritual Destinations</h2>
+            <p>Explore India’s holiest sites and spiritual experiences</p>
           </div>
 
-          <div className="packages-table-wrapper animate-on-scroll fade-up">
-            <table className="packages-table">
-              <thead>
-                <tr>
-                  <th>Features</th>
-                  {tourPackages.map((pkg) => (
-                    <th key={pkg.id}>{pkg.title}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Price</td>
-                  {tourPackages.map((pkg) => (
-                    <td key={pkg.id}>{pkg.price}</td>
-                  ))}
-                </tr>
-                <tr>
-                  <td>Group Size</td>
-                  {tourPackages.map((pkg) => (
-                    <td key={pkg.id}>{pkg.groupSize} People</td>
-                  ))}
-                </tr>
-                <tr>
-                  <td>Languages</td>
-                  {tourPackages.map((pkg) => (
-                    <td key={pkg.id}>{pkg.languages}</td>
-                  ))}
-                </tr>
-                <tr>
-                  <td>Includes</td>
-                  {tourPackages.map((pkg) => (
-                    <td key={pkg.id}>
-                      <ul>
-                        {pkg.includes.slice(0, 3).map((inc, i) => (
-                          <li key={i}>{inc}</li>
-                        ))}
-                      </ul>
-                    </td>
-                  ))}
-                </tr>
-                <tr>
-                  <td>Itinerary</td>
-                  {tourPackages.map((pkg) => (
-                    <td key={pkg.id}>
-                      <ul>
-                        {pkg.timeline.slice(0, 2).map((step, i) => (
-                          <li key={i}>{step}</li>
-                        ))}
-                      </ul>
-                    </td>
-                  ))}
-                </tr>
-                <tr>
-                  <td></td>
-                  {tourPackages.map((pkg) => (
-                    <td key={pkg.id}>
-                      <a href={pkg.route} className="btn-view-details">
-                        View Details
-                      </a>
-                    </td>
-                  ))}
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="testimonials-section">
-        <div className="container">
-          <div className="section-header animate-on-scroll fade-up">
-            <h2>What Our Travelers Say</h2>
-            <p>
-              Read about the experiences of travelers who have explored India
-              with us
-            </p>
-          </div>
-          <div className="testimonials-grid">
-            {testimonials.map((item) => (
+          <div className="tours-grid">
+            {tours.map((tour) => (
               <div
-                className="testimonial-card animate-on-scroll fade-up"
-                key={item.id}
+                key={tour.id}
+                className="tour-card animate-on-scroll fade-up"
               >
-                <p className="testimonial-quote">"{item.quote}"</p>
-                <hr />
-                <h4 className="testimonial-name">{item.name}</h4>
-                <p className="testimonial-detail">{item.detail}</p>
+                <div
+                  className="tour-image"
+                  style={{
+                    backgroundImage: `url(${images[tour.id % 8]})`, // Alternate images for demonstration
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    height: "200px",
+                    borderRadius: "8px",
+                    position: "relative",
+                    overflow: "hidden",
+                    boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
+                  }}
+                >
+                  {/* <div className="tour-overlay">
+                    <h3>{tour.title}</h3>
+                    <p>{tour.description}</p>
+                  </div> */}
+                </div>
+                <div className="tour-content">
+                  <div className="tour-details">
+                    <div className="tour-info">
+                      <span>
+                        <i className="fa fa-calendar"></i> 1-3 Days
+                      </span>{" "}
+                      {/* Placeholder, adjust as needed */}
+                      <span>
+                        <i className="fa fa-star"></i> 4.8/5
+                      </span>{" "}
+                      {/* Placeholder, adjust as needed */}
+                    </div>
+                    <h3 style={{ fontSize: "1rem", padding: "0.5rem 0rem" }}>
+                      {tour.title}
+                    </h3>
+                    <p>Experience a spiritual journey to sacred sites.</p>{" "}
+                    {/* Generic description, adjust as needed */}
+                    <ul className="tour-highlights">
+                      <li>Temple Darshan</li>
+                      <li>Spiritual Rituals</li>
+                      <li>Guided Tours</li>
+                      <li>Cultural Insights</li>
+                    </ul>
+                    <div className="price-container">
+                      <p className="price">
+                        Starting from <span>{tour.price}</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div className="tour-buttons">
+                    <Link
+                      to={`/tour-details/${tour.id}`}
+                      className="btn-details"
+                      onClick={() => {
+                        window.scrollTo(0, 0); // Scroll to top on link click
+                      }}
+                    >
+                      Details
+                    </Link>
+                    <Link
+                      to="/contact"
+                      className="btn-enquiry"
+                      onClick={() => {
+                        window.scrollTo(0, 0); // Scroll to top on link click
+                      }}
+                    >
+                      Enquiry
+                    </Link>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
+      {/* Popular Experiences Section */}
+      <section className="popular-experiences">
+        <div className="container">
+          <div className="section-header animate-on-scroll fade-up">
+            <h2>Popular Spiritual Experiences</h2>
+            <p>
+              Connect with India’s spiritual heritage through unique experiences
+            </p>
+          </div>
+
+          <div className="experiences-grid">
+            <div className="experience-card animate-on-scroll fade-up">
+              <div className="experience-icon">
+                <i className="fa fa-om"></i>
+              </div>
+              <h3>Meditation Retreats</h3>
+              <p>
+                Find inner peace with guided meditation sessions in serene
+                ashrams and sacred sites
+              </p>
+            </div>
+
+            <div className="experience-card animate-on-scroll fade-up">
+              <div className="experience-icon">
+                <i className="fa fa-pray"></i>
+              </div>
+              <h3>Temple Pilgrimages</h3>
+              <p>
+                Visit ancient temples and participate in sacred rituals across
+                India’s holy cities
+              </p>
+            </div>
+
+            <div className="experience-card animate-on-scroll fade-up">
+              <div className="experience-icon">
+                <i className="fa fa-water"></i>
+              </div>
+              <h3>Ganga Aarti Ceremonies</h3>
+              <p>
+                Witness the divine evening rituals along the banks of the Ganges
+              </p>
+            </div>
+
+            <div className="experience-card animate-on-scroll fade-up">
+              <div className="experience-icon">
+                <i className="fa fa-book"></i>
+              </div>
+              <h3>Spiritual Learning</h3>
+              <p>
+                Learn about ancient scriptures, yoga philosophy, and spiritual
+                practices
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="testimonials-section">
+        <div className="container">
+          <div className="section-header animate-on-scroll fade-up">
+            <h2>What Our Pilgrims Say</h2>
+            <p>
+              Hear from travelers who have experienced India’s spiritual
+              journeys with us
+            </p>
+          </div>
+
+          <div className="testimonials-grid">
+            <div className="testimonial-card animate-on-scroll fade-up">
+              <div className="testimonial-content">
+                <p>
+                  "The Varanasi pilgrimage was a transformative experience. The
+                  Ganga Aarti and temple visits were deeply moving, and the tour
+                  was perfectly organized."
+                </p>
+              </div>
+              <div className="testimonial-author">
+                <div className="author-info">
+                  <h4>Neha Gupta</h4>
+                  <p>Varanasi Tour, April 2023</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="testimonial-card animate-on-scroll fade-up">
+              <div className="testimonial-content">
+                <p>
+                  "Rishikesh was a haven for peace and spirituality. The yoga
+                  retreat and Ganga Aarti in Haridwar were highlights of our
+                  journey."
+                </p>
+              </div>
+              <div className="testimonial-author">
+                <div className="author-info">
+                  <h4>Vikram Singh</h4>
+                  <p>Rishikesh Tour, January 2023</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="testimonial-card animate-on-scroll fade-up">
+              <div className="testimonial-content">
+                <p>
+                  "The Golden Temple in Amritsar was awe-inspiring. The tour was
+                  well-planned, and the langar experience was unforgettable."
+                </p>
+              </div>
+              <div className="testimonial-author">
+                <div className="author-info">
+                  <h4>Anita Desai</h4>
+                  <p>Amritsar Tour, February 2023</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action Section */}
       <section className="cta-section">
         <div className="container">
           <div className="cta-content animate-on-scroll fade-up">
-            <h2>Ready to begin your spiritual journey?</h2>
-            <p>Connect with us to plan your pilgrimage</p>
-            <a href="/contact" className="btn-primary">
-              Contact Us
-            </a>
+            <h2>Ready for a Spiritual Journey?</h2>
+            <p>
+              Contact us to book your sacred tour across India’s spiritual
+              destinations
+            </p>
+            <div className="cta-buttons">
+              <a href="/contact" className="btn-primary">
+                Contact Us
+              </a>
+              <a
+                href="/spiritual-tours#featured-tours"
+                className="btn-secondary"
+              >
+                View All Destinations
+              </a>
+            </div>
           </div>
         </div>
       </section>
